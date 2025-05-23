@@ -3,112 +3,485 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My 4-Day Projects</title>
+  <title>Manthan Gharat | 5-Day Project Showcase</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #2c3e50;
+      --secondary: #3498db;
+      --accent: #e74c3c;
+      --light: #ecf0f1;
+      --dark: #2c3e50;
+      --gray: #95a5a6;
+      --success: #2ecc71;
+    }
+    
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f4f4;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
     }
+    
     header {
-      background-color: #4CAF50;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: white;
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 3rem 1rem;
+      position: relative;
+      overflow: hidden;
     }
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+      opacity: 0.3;
+    }
+    
+    .header-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    
+    .subtitle {
+      font-weight: 300;
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+      opacity: 0.9;
+    }
+    
     .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 20px;
     }
+    
+    .profile-section {
+      text-align: center;
+      margin-bottom: 3rem;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      max-width: 800px;
+      margin: -80px auto 3rem;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .profile-pic {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom: 1.5rem;
+    }
+    
+    .profile-name {
+      margin: 0;
+      color: var(--dark);
+      font-size: 2rem;
+    }
+    
+    .profile-title {
+      color: var(--secondary);
+      margin: 0.5rem 0 1rem;
+      font-weight: 500;
+    }
+    
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 1rem 0;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      color: var(--gray);
+      transition: color 0.3s;
+    }
+    
+    .contact-item:hover {
+      color: var(--secondary);
+    }
+    
+    .contact-item i {
+      margin-right: 8px;
+      font-size: 1.1rem;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--light);
+      color: var(--dark);
+      transition: all 0.3s;
+    }
+    
+    .social-link:hover {
+      background: var(--secondary);
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
     .project {
       background-color: white;
-      margin: 20px 0;
-      padding: 20px;
       border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
     }
-    .project h2 {
-      margin-top: 0;
-      color: #333;
+    
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
-    .project p {
-      color: #555;
+    
+    .project-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid #eee;
     }
+    
+    .project-title {
+      margin: 0;
+      color: var(--dark);
+      font-size: 1.4rem;
+    }
+    
+    .project-day {
+      display: inline-block;
+      background: var(--secondary);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+    
+    .project-body {
+      padding: 1.5rem;
+    }
+    
+    .project-description {
+      color: #666;
+      margin-bottom: 1.5rem;
+    }
+    
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.6rem 1.2rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+    
+    .project-link:hover {
+      background: var(--dark);
+    }
+    
+    .project-link i {
+      margin-left: 8px;
+    }
+    
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    
+    .tech-tag {
+      background: var(--light);
+      color: var(--dark);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
     footer {
       text-align: center;
-      padding: 1rem;
-      background-color: #ddd;
-      margin-top: 40px;
+      padding: 2rem;
+      background: var(--dark);
+      color: white;
+      margin-top: 4rem;
     }
-    @media (max-width: 600px) {
-      .project {
-        padding: 15px;
+    
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1rem 0;
+    }
+    
+    .footer-link {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-link:hover {
+      color: var(--secondary);
+    }
+    
+    .copyright {
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .projects-container {
+        grid-template-columns: 1fr;
       }
+      
+      .profile-section {
+        margin: -50px auto 2rem;
+        padding: 1.5rem;
+      }
+      
+      .profile-pic {
+        width: 120px;
+        height: 120px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+    }
+    
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .project {
+      animation: fadeIn 0.5s ease-out forwards;
+      opacity: 0;
+    }
+    
+    .project:nth-child(1) { animation-delay: 0.1s; }
+    .project:nth-child(2) { animation-delay: 0.2s; }
+    .project:nth-child(3) { animation-delay: 0.3s; }
+    .project:nth-child(4) { animation-delay: 0.4s; }
+    .project:nth-child(5) { animation-delay: 0.5s; }
+    
+    /* Progress ribbon */
+    .progress-ribbon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: var(--accent);
+      color: white;
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 10px 50%);
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>My 5-Day Project Showcase</h1>
-    <p>A journey of progress and creativity</p>
+    <div class="header-content">
+      <h1>5-Day Project Showcase</h1>
+      <p class="subtitle" style="position: relative; top: -18px;">A journey of progress and creativity</p>
+    </div>
   </header>
-  <div class="container">
-  <!-- Personal Info Section -->
-  <div style="text-align: center; margin-bottom: 30px;">
-    <img src="your-photo.jpg" alt="Your Photo" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid #4CAF50;" />
-    <h2 style="margin: 10px 0 5px;">Manthan Gharat</h2>
-    <p style="margin: 5px 0;">📧 122manthan2109@sjcem.edu.in | 📞 +91 9322491269</p>
-    <p style="margin: 5px 0;">🌐 <a href="https://yourwebsite.com" target="_blank">yourwebsite.com</a></p>
+  
+  <div class="profile-section">
+    <img src="IMG_20241204_0001.jpg" alt="Manthan Gharat" class="profile-pic" onerror="this.src='https://via.placeholder.com/160'">
+    <h2 class="profile-name">Manthan Gharat</h2>
+    <p class="profile-title">Web Developer & Designer</p>
+    
+    <div class="contact-info">
+      <a href="mailto:122manthan2109@sjcem.edu.in" class="contact-item">
+        <i class="fas fa-envelope"></i> 122manthan2109@sjcem.edu.in
+      </a>
+      <a href="tel:+919322491269" class="contact-item">
+        <i class="fas fa-phone"></i> +91 9322491269
+      </a>
+    </div>
+    
+    <div class="social-links">
+      <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+      <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+    </div>
   </div>
+  
   <div class="container">
-    <div class="project">
-      <h2>
-        <a href="https://gharatmanthan.github.io/PORT-FOLIO/" target="_blank" style="color: inherit; text-decoration: none;">
-          Day 1: [Project Title]
-        </a>
-      </h2>
-      <p>[Brief description of the project, what you built or learned]</p>
-    </div>
-    <div class="project">
-      <h2>
-        <a href="https://gharatmanthan.github.io/portfolio_day_2/" target="_blank" style="color: inherit; text-decoration: none;">
-          Day 2: [Project Title]
-        </a>
-      </h2>
-      <p>[Brief description of the project, what you built or improved]</p>
-    </div>
-    <div class="project">
-      <h2>
-        <a href="https://gharatmanthan.github.io/portfolio_day_3/" target="_blank" style="color: inherit; text-decoration: none;">
-          Day 3: [Project Title]
-        </a>
-      </h2>
-      <p>[Brief description of the project, what challenges you overcame]</p>
-    </div>
-    <div class="project">
-      <h2>
-        <a href="https://gharatmanthan.github.io/portfolio_day_3/" target="_blank" style="color: inherit; text-decoration: none;">
-          Day 4: [Project Title]
-        </a>
-      </h2>
-      <p>[Brief description of the project, final improvements or presentation]</p>
-    </div>
-    <div class="project">
-      <h2>
-        <a href="https://gharatmanthan.github.io/portfolio_day_3/" target="_blank" style="color: inherit; text-decoration: none;">
-          Day 5: [Project Title]
-        </a>
-      </h2>
-      <p>[Brief description of the project, final improvements or presentation]</p>
+    <div class="projects-container">
+      <div class="project">
+        <div class="progress-ribbon">Day 1</div>
+        <div class="project-header">
+          <h3 class="project-title">Personal Portfolio</h3>
+          <span class="project-day">HTML & CSS</span>
+        </div>
+        <div class="project-body">
+          <p class="project-description">Created a responsive personal portfolio website to introduce myself, showcase achievements, and establish my digital presence with clean, semantic HTML and CSS.</p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML5</span>
+            <span class="tech-tag">CSS3</span>
+            <span class="tech-tag">Responsive Design</span>
+          </div>
+          <a href="https://gharatmanthan.github.io/PORT-FOLIO/" target="_blank" class="project-link">
+            View Project <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="project">
+        <div class="progress-ribbon">Day 2</div>
+        <div class="project-header">
+          <h3 class="project-title">Enhanced Portfolio</h3>
+          <span class="project-day">Tailwind CSS</span>
+        </div>
+        <div class="project-body">
+          <p class="project-description">Upgraded the portfolio with Tailwind CSS for utility-first styling, added interactive contact form, location map, and improved visual hierarchy.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Tailwind CSS</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Form Validation</span>
+          </div>
+          <a href="https://gharatmanthan.github.io/portfolio_day_2/" target="_blank" class="project-link">
+            View Project <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="project">
+        <div class="progress-ribbon">Day 3</div>
+        <div class="project-header">
+          <h3 class="project-title">Interactive Portfolio</h3>
+          <span class="project-day">API Integration</span>
+        </div>
+        <div class="project-body">
+          <p class="project-description">Implemented mobile-friendly design with hamburger menu, added favicon, and integrated APIs for dynamic content loading and enhanced user experience.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Responsive Design</span>
+            <span class="tech-tag">REST API</span>
+            <span class="tech-tag">Mobile First</span>
+          </div>
+          <a href="https://gharatmanthan.github.io/portfolio_day_3/" target="_blank" class="project-link">
+            View Project <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="project">
+        <div class="progress-ribbon">Day 4</div>
+        <div class="project-header">
+          <h3 class="project-title">E-commerce Page</h3>
+          <span class="project-day">Shopping Cart</span>
+        </div>
+        <div class="project-body">
+          <p class="project-description">Developed a functional shopping page with working cart system, including sidebar/popup cart display and complete cart logic for product management.</p>
+          <div class="project-tech">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">DOM Manipulation</span>
+            <span class="tech-tag">Local Storage</span>
+          </div>
+          <a href="https://gharatmanthan.github.io/portfolio_day_3/" target="_blank" class="project-link">
+            View Project <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="project">
+        <div class="progress-ribbon">Day 5</div>
+        <div class="project-header">
+          <h3 class="project-title">Consolidated Home Page</h3>
+          <span class="project-day">Project Integration</span>
+        </div>
+        <div class="project-body">
+          <p class="project-description">Created a comprehensive home page that integrates all previous projects into a cohesive showcase, demonstrating progressive enhancement and skill development.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Project Management</span>
+            <span class="tech-tag">UI/UX Design</span>
+            <span class="tech-tag">Integration</span>
+          </div>
+          <a href="https://gharatmanthan.github.io/portfolio_day_3/" target="_blank" class="project-link">
+            View Project <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 
   <footer>
-    &copy; 2025 Manthan Gharat. All rights reserved.
+    <div class="footer-content">
+      <h3>Manthan Gharat</h3>
+      <div class="footer-links">
+        <a href="#" class="footer-link">About</a>
+        <a href="#" class="footer-link">Projects</a>
+        <a href="#" class="footer-link">Blog</a>
+        <a href="#" class="footer-link">Contact</a>
+      </div>
+      <p class="copyright">&copy; 2025 Manthan Gharat. All rights reserved.</p>
+    </div>
   </footer>
 
+  <script>
+    // Simple animation trigger
+    document.addEventListener('DOMContentLoaded', function() {
+      // This ensures animations play when page loads
+    });
+    
+    // You could add more interactive features here
+  </script>
 </body>
 </html>
